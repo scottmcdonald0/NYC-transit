@@ -1,0 +1,16 @@
+'name'
+'bike_data'
+'central_park_weather'
+'fhv_bases'
+'fhv_tripdata'
+'fhvhv_tripdata'
+'green_tripdata'
+'yellow_tripdata'
+'database','schema','name','column_names','column_types','temporary'
+'main','main','bike_data','[tripduration, starttime, stoptime, start station id, start station name, start station latitude, start station longitude, end station id, end station name, end station latitude, end station longitude, bikeid, usertype, birth year, gender, ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, filename]','[BIGINT, TIMESTAMP, TIMESTAMP, BIGINT, VARCHAR, DOUBLE, DOUBLE, BIGINT, VARCHAR, DOUBLE, DOUBLE, BIGINT, VARCHAR, BIGINT, BIGINT, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR]',false
+'main','main','central_park_weather','[STATION, NAME, DATE, AWND, PRCP, SNOW, SNWD, TMAX, TMIN, filename]','[VARCHAR, VARCHAR, DATE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, BIGINT, BIGINT, VARCHAR]',false
+'main','main','fhv_bases','[base_number, base_name, dba, dba_category, filename]','[VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR]',false
+'main','main','fhv_tripdata','[dispatching_base_num, pickup_datetime, dropOff_datetime, PUlocationID, DOlocationID, SR_Flag, Affiliated_base_number, filename]','[VARCHAR, TIMESTAMP, TIMESTAMP, DOUBLE, DOUBLE, INTEGER, VARCHAR, VARCHAR]',false
+'main','main','fhvhv_tripdata','[hvfhs_license_num, dispatching_base_num, originating_base_num, request_datetime, on_scene_datetime, pickup_datetime, dropoff_datetime, PULocationID, DOLocationID, trip_miles, trip_time, base_passenger_fare, tolls, bcf, sales_tax, congestion_surcharge, airport_fee, tips, driver_pay, shared_request_flag, shared_match_flag, access_a_ride_flag, wav_request_flag, wav_match_flag, filename]','[VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, TIMESTAMP, TIMESTAMP, TIMESTAMP, BIGINT, BIGINT, DOUBLE, BIGINT, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR]',false
+'main','main','green_tripdata','[VendorID, lpep_pickup_datetime, lpep_dropoff_datetime, store_and_fwd_flag, RatecodeID, PULocationID, DOLocationID, passenger_count, trip_distance, fare_amount, extra, mta_tax, tip_amount, tolls_amount, ehail_fee, improvement_surcharge, total_amount, payment_type, trip_type, congestion_surcharge, filename]','[BIGINT, TIMESTAMP, TIMESTAMP, VARCHAR, DOUBLE, BIGINT, BIGINT, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, INTEGER, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, VARCHAR]',false
+'main','main','yellow_tripdata','[VendorID, tpep_pickup_datetime, tpep_dropoff_datetime, passenger_count, trip_distance, RatecodeID, store_and_fwd_flag, PULocationID, DOLocationID, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, congestion_surcharge, airport_fee, filename]','[BIGINT, TIMESTAMP, TIMESTAMP, DOUBLE, DOUBLE, DOUBLE, VARCHAR, BIGINT, BIGINT, BIGINT, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, VARCHAR]',false
