@@ -1,3 +1,5 @@
+--PRINT TABLES
+SHOW TABLES;
 'name'
 'bike_data'
 'central_park_weather'
@@ -6,11 +8,136 @@
 'fhvhv_tripdata'
 'green_tripdata'
 'yellow_tripdata'
-'database','schema','name','column_names','column_types','temporary'
-'main','main','bike_data','[tripduration, starttime, stoptime, start station id, start station name, start station latitude, start station longitude, end station id, end station name, end station latitude, end station longitude, bikeid, usertype, birth year, gender, ride_id, rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, filename]','[BIGINT, TIMESTAMP, TIMESTAMP, BIGINT, VARCHAR, DOUBLE, DOUBLE, BIGINT, VARCHAR, DOUBLE, DOUBLE, BIGINT, VARCHAR, BIGINT, BIGINT, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR]',false
-'main','main','central_park_weather','[STATION, NAME, DATE, AWND, PRCP, SNOW, SNWD, TMAX, TMIN, filename]','[VARCHAR, VARCHAR, DATE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, BIGINT, BIGINT, VARCHAR]',false
-'main','main','fhv_bases','[base_number, base_name, dba, dba_category, filename]','[VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR]',false
-'main','main','fhv_tripdata','[dispatching_base_num, pickup_datetime, dropOff_datetime, PUlocationID, DOlocationID, SR_Flag, Affiliated_base_number, filename]','[VARCHAR, TIMESTAMP, TIMESTAMP, DOUBLE, DOUBLE, INTEGER, VARCHAR, VARCHAR]',false
-'main','main','fhvhv_tripdata','[hvfhs_license_num, dispatching_base_num, originating_base_num, request_datetime, on_scene_datetime, pickup_datetime, dropoff_datetime, PULocationID, DOLocationID, trip_miles, trip_time, base_passenger_fare, tolls, bcf, sales_tax, congestion_surcharge, airport_fee, tips, driver_pay, shared_request_flag, shared_match_flag, access_a_ride_flag, wav_request_flag, wav_match_flag, filename]','[VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, TIMESTAMP, TIMESTAMP, TIMESTAMP, BIGINT, BIGINT, DOUBLE, BIGINT, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR]',false
-'main','main','green_tripdata','[VendorID, lpep_pickup_datetime, lpep_dropoff_datetime, store_and_fwd_flag, RatecodeID, PULocationID, DOLocationID, passenger_count, trip_distance, fare_amount, extra, mta_tax, tip_amount, tolls_amount, ehail_fee, improvement_surcharge, total_amount, payment_type, trip_type, congestion_surcharge, filename]','[BIGINT, TIMESTAMP, TIMESTAMP, VARCHAR, DOUBLE, BIGINT, BIGINT, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, INTEGER, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, VARCHAR]',false
-'main','main','yellow_tripdata','[VendorID, tpep_pickup_datetime, tpep_dropoff_datetime, passenger_count, trip_distance, RatecodeID, store_and_fwd_flag, PULocationID, DOLocationID, payment_type, fare_amount, extra, mta_tax, tip_amount, tolls_amount, improvement_surcharge, total_amount, congestion_surcharge, airport_fee, filename]','[BIGINT, TIMESTAMP, TIMESTAMP, DOUBLE, DOUBLE, DOUBLE, VARCHAR, BIGINT, BIGINT, BIGINT, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, VARCHAR]',false
+--DESCRIBE TABLES
+DESCRIBE "bike_data";
+'column_name','column_type','null','key','default','extra'
+'tripduration','VARCHAR','YES',NULL,NULL,NULL
+'starttime','VARCHAR','YES',NULL,NULL,NULL
+'stoptime','VARCHAR','YES',NULL,NULL,NULL
+'start station id','VARCHAR','YES',NULL,NULL,NULL
+'start station name','VARCHAR','YES',NULL,NULL,NULL
+'start station latitude','VARCHAR','YES',NULL,NULL,NULL
+'start station longitude','VARCHAR','YES',NULL,NULL,NULL
+'end station id','VARCHAR','YES',NULL,NULL,NULL
+'end station name','VARCHAR','YES',NULL,NULL,NULL
+'end station latitude','VARCHAR','YES',NULL,NULL,NULL
+'end station longitude','VARCHAR','YES',NULL,NULL,NULL
+'bikeid','VARCHAR','YES',NULL,NULL,NULL
+'usertype','VARCHAR','YES',NULL,NULL,NULL
+'birth year','VARCHAR','YES',NULL,NULL,NULL
+'gender','VARCHAR','YES',NULL,NULL,NULL
+'ride_id','VARCHAR','YES',NULL,NULL,NULL
+'rideable_type','VARCHAR','YES',NULL,NULL,NULL
+'started_at','VARCHAR','YES',NULL,NULL,NULL
+'ended_at','VARCHAR','YES',NULL,NULL,NULL
+'start_station_name','VARCHAR','YES',NULL,NULL,NULL
+'start_station_id','VARCHAR','YES',NULL,NULL,NULL
+'end_station_name','VARCHAR','YES',NULL,NULL,NULL
+'end_station_id','VARCHAR','YES',NULL,NULL,NULL
+'start_lat','VARCHAR','YES',NULL,NULL,NULL
+'start_lng','VARCHAR','YES',NULL,NULL,NULL
+'end_lat','VARCHAR','YES',NULL,NULL,NULL
+'end_lng','VARCHAR','YES',NULL,NULL,NULL
+'member_casual','VARCHAR','YES',NULL,NULL,NULL
+'filename','VARCHAR','YES',NULL,NULL,NULL
+DESCRIBE "central_park_weather";
+'column_name','column_type','null','key','default','extra'
+'STATION','VARCHAR','YES',NULL,NULL,NULL
+'NAME','VARCHAR','YES',NULL,NULL,NULL
+'DATE','VARCHAR','YES',NULL,NULL,NULL
+'AWND','VARCHAR','YES',NULL,NULL,NULL
+'PRCP','VARCHAR','YES',NULL,NULL,NULL
+'SNOW','VARCHAR','YES',NULL,NULL,NULL
+'SNWD','VARCHAR','YES',NULL,NULL,NULL
+'TMAX','VARCHAR','YES',NULL,NULL,NULL
+'TMIN','VARCHAR','YES',NULL,NULL,NULL
+'filename','VARCHAR','YES',NULL,NULL,NULL
+DESCRIBE "fhv_bases";
+'column_name','column_type','null','key','default','extra'
+'base_number','VARCHAR','YES',NULL,NULL,NULL
+'base_name','VARCHAR','YES',NULL,NULL,NULL
+'dba','VARCHAR','YES',NULL,NULL,NULL
+'dba_category','VARCHAR','YES',NULL,NULL,NULL
+'filename','VARCHAR','YES',NULL,NULL,NULL
+DESCRIBE "fhv_tripdata";
+'column_name','column_type','null','key','default','extra'
+'dispatching_base_num','VARCHAR','YES',NULL,NULL,NULL
+'pickup_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'dropOff_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'PUlocationID','DOUBLE','YES',NULL,NULL,NULL
+'DOlocationID','DOUBLE','YES',NULL,NULL,NULL
+'SR_Flag','INTEGER','YES',NULL,NULL,NULL
+'Affiliated_base_number','VARCHAR','YES',NULL,NULL,NULL
+'filename','VARCHAR','YES',NULL,NULL,NULL
+DESCRIBE "fhvhv_tripdata";
+'column_name','column_type','null','key','default','extra'
+'hvfhs_license_num','VARCHAR','YES',NULL,NULL,NULL
+'dispatching_base_num','VARCHAR','YES',NULL,NULL,NULL
+'originating_base_num','VARCHAR','YES',NULL,NULL,NULL
+'request_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'on_scene_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'pickup_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'dropoff_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'PULocationID','BIGINT','YES',NULL,NULL,NULL
+'DOLocationID','BIGINT','YES',NULL,NULL,NULL
+'trip_miles','DOUBLE','YES',NULL,NULL,NULL
+'trip_time','BIGINT','YES',NULL,NULL,NULL
+'base_passenger_fare','DOUBLE','YES',NULL,NULL,NULL
+'tolls','DOUBLE','YES',NULL,NULL,NULL
+'bcf','DOUBLE','YES',NULL,NULL,NULL
+'sales_tax','DOUBLE','YES',NULL,NULL,NULL
+'congestion_surcharge','DOUBLE','YES',NULL,NULL,NULL
+'airport_fee','DOUBLE','YES',NULL,NULL,NULL
+'tips','DOUBLE','YES',NULL,NULL,NULL
+'driver_pay','DOUBLE','YES',NULL,NULL,NULL
+'shared_request_flag','VARCHAR','YES',NULL,NULL,NULL
+'shared_match_flag','VARCHAR','YES',NULL,NULL,NULL
+'access_a_ride_flag','VARCHAR','YES',NULL,NULL,NULL
+'wav_request_flag','VARCHAR','YES',NULL,NULL,NULL
+'wav_match_flag','VARCHAR','YES',NULL,NULL,NULL
+'filename','VARCHAR','YES',NULL,NULL,NULL
+DESCRIBE "green_tripdata";
+'column_name','column_type','null','key','default','extra'
+'VendorID','BIGINT','YES',NULL,NULL,NULL
+'lpep_pickup_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'lpep_dropoff_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'store_and_fwd_flag','VARCHAR','YES',NULL,NULL,NULL
+'RatecodeID','DOUBLE','YES',NULL,NULL,NULL
+'PULocationID','BIGINT','YES',NULL,NULL,NULL
+'DOLocationID','BIGINT','YES',NULL,NULL,NULL
+'passenger_count','DOUBLE','YES',NULL,NULL,NULL
+'trip_distance','DOUBLE','YES',NULL,NULL,NULL
+'fare_amount','DOUBLE','YES',NULL,NULL,NULL
+'extra','DOUBLE','YES',NULL,NULL,NULL
+'mta_tax','DOUBLE','YES',NULL,NULL,NULL
+'tip_amount','DOUBLE','YES',NULL,NULL,NULL
+'tolls_amount','DOUBLE','YES',NULL,NULL,NULL
+'ehail_fee','INTEGER','YES',NULL,NULL,NULL
+'improvement_surcharge','DOUBLE','YES',NULL,NULL,NULL
+'total_amount','DOUBLE','YES',NULL,NULL,NULL
+'payment_type','DOUBLE','YES',NULL,NULL,NULL
+'trip_type','DOUBLE','YES',NULL,NULL,NULL
+'congestion_surcharge','DOUBLE','YES',NULL,NULL,NULL
+'filename','VARCHAR','YES',NULL,NULL,NULL
+DESCRIBE "yellow_tripdata";
+'column_name','column_type','null','key','default','extra'
+'VendorID','BIGINT','YES',NULL,NULL,NULL
+'tpep_pickup_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'tpep_dropoff_datetime','TIMESTAMP','YES',NULL,NULL,NULL
+'passenger_count','DOUBLE','YES',NULL,NULL,NULL
+'trip_distance','DOUBLE','YES',NULL,NULL,NULL
+'RatecodeID','DOUBLE','YES',NULL,NULL,NULL
+'store_and_fwd_flag','VARCHAR','YES',NULL,NULL,NULL
+'PULocationID','BIGINT','YES',NULL,NULL,NULL
+'DOLocationID','BIGINT','YES',NULL,NULL,NULL
+'payment_type','BIGINT','YES',NULL,NULL,NULL
+'fare_amount','DOUBLE','YES',NULL,NULL,NULL
+'extra','DOUBLE','YES',NULL,NULL,NULL
+'mta_tax','DOUBLE','YES',NULL,NULL,NULL
+'tip_amount','DOUBLE','YES',NULL,NULL,NULL
+'tolls_amount','DOUBLE','YES',NULL,NULL,NULL
+'improvement_surcharge','DOUBLE','YES',NULL,NULL,NULL
+'total_amount','DOUBLE','YES',NULL,NULL,NULL
+'congestion_surcharge','DOUBLE','YES',NULL,NULL,NULL
+'airport_fee','DOUBLE','YES',NULL,NULL,NULL
+'filename','VARCHAR','YES',NULL,NULL,NULL
