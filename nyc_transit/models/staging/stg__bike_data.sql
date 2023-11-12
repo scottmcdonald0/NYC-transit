@@ -7,44 +7,51 @@ with source as (
 renamed as (
 
     select
-        tripduration::int as trip_duration,
-        starttime::timestamp as start_time,
-        stoptime::timestamp as stop_time,
-        TRIM('start station id') as start_station_id,
-        TRIM('start station name') as start_station_name ,
-        'start station latitude'::double as start_station_lat,
-        'start station longitude'::double as start_station_lon,
-        TRIM('end station id') as end_station_id,
-        TRIM('end station name') as end_station_name,
-        'end station latitude'::double as end_station_lat,
-        'end station longitude'::double as end_station_lon,
-        bikeid::int as bike_id,
-        TRIM(usertype) as user_type,
-        'birth year'::int as birth_year,
-        gender::int as gender,
-        TRIM(ride_id) as ride_id,
-        TRIM(rideable_type) as rideable_type,
-        started_at::timestamp as started_at,
-        ended_at::timestamp as ended_at,
-        TRIM(start_station_name) as start_station_name,
-        TRIM(start_station_id)::double as start_station_id,
-        TRIM(end_station_name) as end_station_name,
-        TRIM(end_station_id)::double as end_station_id,
-        start_lat::double as start_lat,
-        start_lng::double as start_lon,
-        end_lat::double as end_lat,
-        end_lng::double as end_long,
-        TRIM(member_casual) as member_casual,
+        tripduration,
+        starttime,
+        stoptime,
+        "start station id",
+        "start station name",
+        "start station latitude",
+        "start station longitude",
+        "end station id",
+        "end station name",
+        "end station latitude",
+        "end station longitude",
+        bikeid,
+        usertype,
+        "birth year",
+        gender,
+        ride_id,
+        rideable_type,
+        started_at,
+        ended_at,
+        start_station_name,
+        start_station_id,
+        end_station_name,
+        end_station_id,
+        start_lat,
+        start_lng,
+        end_lat,
+        end_lng,
+        member_casual,
         filename
-        
 
     from source
-    where (stop_time <= '2022-12-31' OR stop_time is null)
-    and (tripduration >= 0 OR tripduration is null) AND (ended_at <= '2022-12-31' OR ended_at is null)
-
 
 )
 
-select * from renamed
-
-
+select
+	coalesce(starttime, started_at)::timestamp as started_at_ts,
+	coalesce(stoptime, ended_at)::timestamp as ended_at_ts,
+	coalesce(tripduration::int,datediff('second', started_at_ts, ended_at_ts)) tripduration,
+	coalesce("start station id", start_station_id) as start_station_id,  
+	coalesce("start station name", start_station_name) as start_station_name,
+	coalesce("start station latitude", start_lat)::double as start_lat,
+	coalesce("start station longitude", start_lng)::double as start_lng, 
+	coalesce("end station id", end_station_id) as end_station_id,  
+	coalesce("end station name", end_station_name) as end_station_name,
+	coalesce("end station latitude", end_lat)::double as end_lat,
+	coalesce("end station longitude", end_lng)::double as end_lng,
+	filename
+from renamed
