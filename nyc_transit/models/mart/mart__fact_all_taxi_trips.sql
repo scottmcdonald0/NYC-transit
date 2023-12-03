@@ -15,10 +15,10 @@ with trips_renamed as
 
 select
     type,
-    started_at_ts,
-    ended_at_ts,
-    datediff('minute', started_at_ts, ended_at_ts) as duration_min,
-    datediff('second', started_at_ts, ended_at_ts) as duration_sec,
+    pickup_datetime,
+    dropoff_datetime,
+    datediff('minute', pickup_datetime, dropoff_datetime) as duration_min,
+    datediff('second', pickup_datetime, dropoff_datetime) as duration_sec,
     pulocationid,
     dolocationid
 from trips_renamed

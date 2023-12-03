@@ -1,0 +1,56 @@
+nyc_transit/target/compiled/nyc_transit/analyses/bike_trips_and_duration_by_weekday.sql
+select
+    weekday(started_at_ts) as weekday,
+    count(*) as total_trips,
+    sum(duration_min) as total_trip_duration_mins
+from "main"."main"."mart__fact_all_bike_trips"
+group by all;
+'weekday','total_trips','total_trip_duration_mins'
+0,644442,'15177911'
+1,670119,'12840242'
+2,706091,'13500664'
+3,681487,'12447607'
+4,679193,'13128901'
+5,672774,'13106890'
+6,726257,'16649639'
+nyc_transit/target/compiled/nyc_transit/analyses/inter_borough_taxi_trips_by_weekday.sql
+with all_trips as
+(select
+    weekday(pickup_datetime) as weekday,
+    count(*) trips
+    from "main"."main"."mart__fact_all_taxi_trips" t
+    where PUlocationID is not null and DOlocationID is not null
+    group by all),
+
+inter_borough as
+(select
+    weekday(pickup_datetime) as weekday,
+    count(*) as trips
+from "main"."main"."mart__fact_all_taxi_trips" t
+join "main"."main"."mart__dim_locations" pl on t.PUlocationID = pl.LocationID
+join "main"."main"."mart__dim_locations" dl on t.DOlocationID = dl.LocationID
+where pl.borough != dl.borough
+group by all)
+
+select all_trips.weekday,
+       all_trips.trips as all_trips,
+       inter_borough.trips as inter_borough_trips,
+       inter_borough.trips / all_trips.trips as percent_inter_borough
+from all_trips
+join inter_borough on (all_trips.weekday = inter_borough.weekday);
+'weekday','all_trips','inter_borough_trips','percent_inter_borough'
+0,5332343,1523271,0.2856663571716973049
+1,4926865,1281819,0.2601692962969352485
+2,5116466,1270252,0.24826745648265816091
+3,5541520,1372114,0.24760607198025091912
+4,5697479,1457274,0.25577522971124599937
+5,6181593,1580243,0.25563685606606584288
+6,6481991,1694238,0.2613761728456580613
+nyc_transit/target/compiled/nyc_transit/analyses/taxi_trips_ending_at_airport.sql
+select count(*) as trips
+from "main"."main"."mart__fact_all_taxi_trips" t
+join "main"."main"."mart__dim_locations" dl on t.DOlocationID = dl.LocationID
+where dl.service_zone in ('Airports', 'EWR')
+group by all
+'trips'
+1062928
