@@ -7,3 +7,5 @@
     else {{column_name}}
 end)::bool
 {%- endmacro %}
+
+{{ macro dbt_utils.pivot(<column>, <list of values>) endmacro}}

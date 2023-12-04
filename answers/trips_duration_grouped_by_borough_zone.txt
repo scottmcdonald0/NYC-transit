@@ -1,0 +1,276 @@
+nyc_transit/target/compiled/nyc_transit/analyses/trips_duration_grouped_by_borough_zone.sql
+select
+    Borough,
+    Zone,
+    count(*),
+    avg(duration_min)
+from
+    "main"."mart"."mart__dim_locations" dl
+join
+    "main"."mart"."mart__fact_all_taxi_trips" t
+on dl.LocationID = t.pulocationid
+group by all
+order by Borough, Zone;
+'Borough','Zone','count_star()','avg(duration_min)'
+'Bronx','Allerton/Pelham Gardens',79265,15.065363022771714796
+'Bronx','Bedford Park',184629,15.379615336702251227
+'Bronx','Belmont',110060,15.676267490459748543
+'Bronx','Bronx Park',15648,19.901904396728017587
+'Bronx','Bronxdale',100726,15.685155769116216006
+'Bronx','City Island',7759,23.254800876401599651
+'Bronx','Claremont/Bathgate',138417,15.285225080734303304
+'Bronx','Co-Op City',133845,16.749396690201351134
+'Bronx','Country Club',10361,15.975581507576489315
+'Bronx','Crotona Park',5848,15.787790697674418893
+'Bronx','Crotona Park East',97095,15.290787373191204068
+'Bronx','East Concourse/Concourse Village',204852,16.048625349032473508
+'Bronx','East Tremont',169957,15.362727042722571724
+'Bronx','Eastchester',103462,15.078009317430554503
+'Bronx','Fordham South',88003,15.741167914730180398
+'Bronx','Highbridge',139357,15.486950781087422512
+'Bronx','Hunts Point',119710,16.096575056386267732
+'Bronx','Kingsbridge Heights',105540,15.313947318552207476
+'Bronx','Longwood',89396,16.327609736453531751
+'Bronx','Melrose South',175700,16.606977803073419864
+'Bronx','Morrisania/Melrose',155583,16.237455248966789156
+'Bronx','Mott Haven/Port Morris',229669,16.760315932929565008
+'Bronx','Mount Hope',199348,15.004424423621005146
+'Bronx','Norwood',156302,15.859214853296823121
+'Bronx','Parkchester',95768,16.260661181187870738
+'Bronx','Pelham Bay',44926,15.313537817744736102
+'Bronx','Pelham Bay Park',7961,15.802914206757945336
+'Bronx','Pelham Parkway',117703,16.078111857811610008
+'Bronx','Rikers Island',15,24.60000000000000142
+'Bronx','Riverdale/North Riverdale/Fieldston',54622,17.805279923840210187
+'Bronx','Schuylerville/Edgewater Park',109207,16.021921671687710641
+'Bronx','Soundview/Bruckner',100483,14.475602838291054652
+'Bronx','Soundview/Castle Hill',202161,15.448365411726296513
+'Bronx','Spuyten Duyvil/Kingsbridge',119066,15.553659315001763019
+'Bronx','University Heights/Morris Heights',183443,15.360215434767203745
+'Bronx','Van Cortlandt Park',21897,15.149792208978398733
+'Bronx','Van Cortlandt Village',147042,15.519783463228193909
+'Bronx','Van Nest/Morris Park',148675,16.05010257272574492
+'Bronx','West Concourse',192061,14.860960840566278307
+'Bronx','West Farms/Bronx River',101685,14.639986231990953057
+'Bronx','Westchester Village/Unionport',92018,15.326892564498249882
+'Bronx','Williamsbridge/Olinville',184230,15.691315203821309509
+'Bronx','Woodlawn/Wakefield',112116,15.573370437760891249
+'Brooklyn','Bath Beach',37672,16.881264599702696215
+'Brooklyn','Bay Ridge',177334,17.378579403836827311
+'Brooklyn','Bedford',316182,17.725199410466125016
+'Brooklyn','Bensonhurst East',88734,16.371717718123829143
+'Brooklyn','Bensonhurst West',115360,16.471567267683774105
+'Brooklyn','Boerum Hill',177928,19.490007193921137229
+'Brooklyn','Borough Park',172245,16.257627217045488521
+'Brooklyn','Brighton Beach',73674,16.16005646496728687
+'Brooklyn','Brooklyn Heights',153460,19.698462139971329776
+'Brooklyn','Brooklyn Navy Yard',27056,18.432177705499704245
+'Brooklyn','Brownsville',263540,16.678010928132351864
+'Brooklyn','Bushwick North',257089,17.965342741229690659
+'Brooklyn','Bushwick South',393694,18.651203726752250133
+'Brooklyn','Canarsie',295959,16.356255427272021307
+'Brooklyn','Carroll Gardens',77416,18.393626640487752865
+'Brooklyn','Clinton Hill',199884,18.203127814132198381
+'Brooklyn','Cobble Hill',47298,18.720432153579434242
+'Brooklyn','Columbia Street',17436,18.010954347327370328
+'Brooklyn','Coney Island',91813,20.362377876771262207
+'Brooklyn','Crown Heights North',536107,17.799528825402390452
+'Brooklyn','Crown Heights South',138845,18.269156253376067411
+'Brooklyn','Cypress Hills',121774,17.012293264572075912
+'Brooklyn','DUMBO/Vinegar Hill',109229,18.752629796116416116
+'Brooklyn','Downtown Brooklyn/MetroTech',151326,19.604198881884144611
+'Brooklyn','Dyker Heights',53901,16.761266024749076564
+'Brooklyn','East Flatbush/Farragut',174205,17.290244252461182128
+'Brooklyn','East Flatbush/Remsen Village',216452,16.423516530223789544
+'Brooklyn','East New York',424810,16.49145264941974176
+'Brooklyn','East New York/Pennsylvania Avenue',126280,17.498226164079824229
+'Brooklyn','East Williamsburg',245804,17.591259702852678259
+'Brooklyn','Erasmus',122428,17.887754435259907381
+'Brooklyn','Flatbush/Ditmas Park',304834,18.472312799753307643
+'Brooklyn','Flatlands',194581,17.05917843982711446
+'Brooklyn','Fort Greene',227473,18.500349492027623909
+'Brooklyn','Gowanus',64439,18.079129098837661615
+'Brooklyn','Gravesend',50696,16.345313239703330055
+'Brooklyn','Green-Wood Cemetery',1550,17.556774193548388751
+'Brooklyn','Greenpoint',245113,18.081933638770689043
+'Brooklyn','Homecrest',103090,15.43709380153264199
+'Brooklyn','Kensington',67987,18.477032373836173917
+'Brooklyn','Madison',79677,15.892704293585349972
+'Brooklyn','Manhattan Beach',37735,15.843407976679475979
+'Brooklyn','Marine Park/Floyd Bennett Field',3598,21.713451917732072616
+'Brooklyn','Marine Park/Mill Basin',104286,18.045212204898067653
+'Brooklyn','Midwood',108778,17.477219658386804468
+'Brooklyn','Ocean Hill',179901,17.361787872218609862
+'Brooklyn','Ocean Parkway South',36465,15.511860688331276847
+'Brooklyn','Park Slope',301182,19.440301877270222519
+'Brooklyn','Prospect Heights',112567,18.812245151776274099
+'Brooklyn','Prospect Park',20788,19.567779488166248569
+'Brooklyn','Prospect-Lefferts Gardens',292193,18.513369587909362934
+'Brooklyn','Red Hook',63855,20.708433168898285003
+'Brooklyn','Sheepshead Bay',112027,15.576245012363090225
+'Brooklyn','South Williamsburg',54588,15.526580933538506101
+'Brooklyn','Starrett City',48659,17.536509176103084683
+'Brooklyn','Stuyvesant Heights',313568,18.872046892540055296
+'Brooklyn','Sunset Park East',79236,18.554886667676310452
+'Brooklyn','Sunset Park West',160556,19.099691073519519335
+'Brooklyn','Williamsburg (North Side)',287947,19.475646559957215941
+'Brooklyn','Williamsburg (South Side)',259563,18.475279604566136271
+'Brooklyn','Windsor Terrace',46775,18.986809192944949842
+'EWR','Newark Airport',1972,33.864604462474645174
+'Manhattan','Alphabet City',122990,17.824465403691355902
+'Manhattan','Battery Park',4882,21.843506759524785819
+'Manhattan','Battery Park City',164797,19.438636625666728008
+'Manhattan','Bloomingdale',73275,17.322674854998293625
+'Manhattan','Central Harlem',277418,16.951690229184841029
+'Manhattan','Central Harlem North',379636,16.297727296673656383
+'Manhattan','Central Park',145691,16.256769464139857461
+'Manhattan','Chinatown',77615,18.950666752560717753
+'Manhattan','Clinton East',459173,17.665857966387395805
+'Manhattan','Clinton West',230141,17.669072438200927877
+'Manhattan','East Chelsea',422629,18.353302778559918095
+'Manhattan','East Harlem North',325581,16.477844223096557385
+'Manhattan','East Harlem South',316546,17.399411144035937581
+'Manhattan','East Village',572276,16.654993394795518212
+'Manhattan','Financial District North',217251,20.332265444117634701
+'Manhattan','Financial District South',78600,21.267061068702290071
+'Manhattan','Flatiron',309776,16.487323097980475239
+'Manhattan','Garment District',255116,19.080285046802238468
+'Manhattan','Governor''s Island/Ellis Island/Liberty Island',15,16.466666666666665008
+'Manhattan','Gramercy',371924,16.419970208967423985
+'Manhattan','Greenwich Village North',264173,17.047597597029220395
+'Manhattan','Greenwich Village South',240402,17.008123892480096373
+'Manhattan','Hamilton Heights',181376,16.824822468242764728
+'Manhattan','Highbridge Park',3563,15.906820095425203476
+'Manhattan','Hudson Sq',121089,17.582026443359843881
+'Manhattan','Inwood',130205,16.252102453822818261
+'Manhattan','Inwood Hill Park',8947,17.002682463395551338
+'Manhattan','Kips Bay',284781,16.607561599966288667
+'Manhattan','Lenox Hill East',330388,18.062060365388575178
+'Manhattan','Lenox Hill West',369254,15.862614893812930106
+'Manhattan','Lincoln Square East',371643,16.545846417126114147
+'Manhattan','Lincoln Square West',235370,16.508437778816333008
+'Manhattan','Little Italy/NoLiTa',253023,17.949237816324998817
+'Manhattan','Lower East Side',331811,17.509844459647208481
+'Manhattan','Manhattan Valley',172501,16.777995489881217139
+'Manhattan','Manhattanville',92770,16.575358413280156355
+'Manhattan','Marble Hill',40968,14.231107205623901634
+'Manhattan','Meatpacking/West Village West',210696,17.859983103618482403
+'Manhattan','Midtown Center',483224,18.524887008923396791
+'Manhattan','Midtown East',403255,17.507467979318295902
+'Manhattan','Midtown North',347001,18.083478145596121322
+'Manhattan','Midtown South',375953,17.755892358885287052
+'Manhattan','Morningside Heights',177422,17.651706101836300178
+'Manhattan','Murray Hill',458614,16.648902999036227611
+'Manhattan','Penn Station/Madison Sq West',388236,18.103805417323481918
+'Manhattan','Randalls Island',4668,22.017994858611825037
+'Manhattan','Roosevelt Island',19646,23.891988190980352868
+'Manhattan','Seaport',73303,19.618269375059682602
+'Manhattan','SoHo',215251,17.889909919117680913
+'Manhattan','Stuy Town/Peter Cooper Village',76075,16.873164640157739313
+'Manhattan','Sutton Place/Turtle Bay North',308887,16.016964132514480922
+'Manhattan','Times Sq/Theatre District',411519,19.646733200654161066
+'Manhattan','TriBeCa/Civic Center',403168,18.449480117469640561
+'Manhattan','Two Bridges/Seward Park',170368,18.114786814425244187
+'Manhattan','UN/Turtle Bay South',248941,16.732647494787922682
+'Manhattan','Union Sq',463665,17.049660854280567434
+'Manhattan','Upper East Side North',478225,15.886869151550001788
+'Manhattan','Upper East Side South',510543,14.604932395508312126
+'Manhattan','Upper West Side North',317051,16.636553740565396708
+'Manhattan','Upper West Side South',363061,16.244923029463368635
+'Manhattan','Washington Heights North',203005,17.021960050245066753
+'Manhattan','Washington Heights South',307492,16.978737658215496963
+'Manhattan','West Chelsea/Hudson Yards',348791,18.023911167432647317
+'Manhattan','West Village',394143,16.52069426578678346
+'Manhattan','World Trade Center',125029,21.466899679274408895
+'Manhattan','Yorkville East',209797,13.513262820726701818
+'Manhattan','Yorkville West',311599,16.059605454446259642
+'Queens','Astoria',334413,16.488856593493675717
+'Queens','Astoria Park',1396,17.318051575931232121
+'Queens','Auburndale',27380,16.395398100803507901
+'Queens','Baisley Park',119460,16.039159551314249085
+'Queens','Bay Terrace/Fort Totten',22945,18.383046415341034673
+'Queens','Bayside',60409,16.328278898839577948
+'Queens','Bellerose',24390,17.150963509635097636
+'Queens','Breezy Point/Fort Tilden/Riis Beach',3282,29.833028641072516506
+'Queens','Briarwood/Jamaica Hills',75436,16.670833554271169418
+'Queens','Broad Channel',1592,18.129396984924621705
+'Queens','Cambria Heights',37529,17.122571877747873259
+'Queens','College Point',45617,30.297827564285245926
+'Queens','Corona',121113,15.854672908771147987
+'Queens','Douglaston',17748,17.606378183457291441
+'Queens','East Elmhurst',80637,17.969344097622681033
+'Queens','East Flushing',35664,25.942659264244056771
+'Queens','Elmhurst',246253,16.542953791425890841
+'Queens','Elmhurst/Maspeth',66595,15.589368571214055947
+'Queens','Far Rockaway',67725,24.03989664082687483
+'Queens','Flushing',153299,32.917383675040284174
+'Queens','Flushing Meadows-Corona Park',17047,24.186191118671906963
+'Queens','Forest Hills',202930,17.624545409747202739
+'Queens','Forest Park/Highland Park',5044,18.013481363996827866
+'Queens','Fresh Meadows',28603,16.876166835646611019
+'Queens','Glen Oaks',24764,19.075593603618155924
+'Queens','Glendale',82127,16.162504413895550925
+'Queens','Hammels/Arverne',60146,23.324477105709441105
+'Queens','Hillcrest/Pomonok',73436,18.078599052235961863
+'Queens','Hollis',41159,17.056318180713816445
+'Queens','Howard Beach',43638,16.349763967184564705
+'Queens','JFK Airport',518933,37.105730412211208602
+'Queens','Jackson Heights',267213,16.572711656992737516
+'Queens','Jamaica',222145,16.279087983074116863
+'Queens','Jamaica Bay',78,28.435897435897434348
+'Queens','Jamaica Estates',50828,16.838848666089557326
+'Queens','Kew Gardens',69361,16.201467683568576916
+'Queens','Kew Gardens Hills',55931,17.538055818776708605
+'Queens','LaGuardia Airport',446096,29.985379828557082505
+'Queens','Laurelton',61747,15.780863847636322106
+'Queens','Long Island City/Hunters Point',222195,18.612137986903395159
+'Queens','Long Island City/Queens Plaza',88236,18.958338999954666093
+'Queens','Maspeth',86141,15.851534112675729204
+'Queens','Middle Village',68618,16.728190853711854657
+'Queens','Murray Hill-Queens',63990,26.278934208470072775
+'Queens','North Corona',85988,15.525177931804437392
+'Queens','Oakland Gardens',21147,17.549345060765119796
+'Queens','Old Astoria',120382,17.217100563207125673
+'Queens','Ozone Park',53590,15.671319275984325614
+'Queens','Queens Village',90845,16.63739336232043442
+'Queens','Queensboro Hill',42418,23.590480456410013233
+'Queens','Queensbridge/Ravenswood',54857,18.345972255136082651
+'Queens','Rego Park',86465,17.35904701324235333
+'Queens','Richmond Hill',140629,15.681097071016646182
+'Queens','Ridgewood',203868,17.696225008338728912
+'Queens','Rockaway Park',20327,22.484232793821025352
+'Queens','Rosedale',59334,16.116240266963291816
+'Queens','Saint Albans',146942,16.592614773175810682
+'Queens','Saint Michaels Cemetery/Woodside',11618,12.418746772249956933
+'Queens','South Jamaica',116991,15.773521040080005662
+'Queens','South Ozone Park',187691,14.809767117229915456
+'Queens','Springfield Gardens North',75061,16.346904517658970235
+'Queens','Springfield Gardens South',67034,16.496733001163587317
+'Queens','Steinway',163746,16.476475761239967709
+'Queens','Sunnyside',204974,17.66462575741313401
+'Queens','Whitestone',43750,24.576388571428569918
+'Queens','Willets Point',2213,20.777225485765928425
+'Queens','Woodhaven',111876,17.168329221638241932
+'Queens','Woodside',140613,15.855696130514248309
+'Staten Island','Arden Heights',8881,16.895845062492963251
+'Staten Island','Arrochar/Fort Wadsworth',18322,18.036458901866609494
+'Staten Island','Bloomfield/Emerson Hill',46416,16.703765942778353803
+'Staten Island','Charleston/Tottenville',13165,17.707633877706037139
+'Staten Island','Eltingville/Annadale/Prince''s Bay',13082,16.791010548845743954
+'Staten Island','Freshkills Park',786,17.419847328244273398
+'Staten Island','Great Kills',19833,17.30212272475167623
+'Staten Island','Great Kills Park',63,18.174603174603173982
+'Staten Island','Grymes Hill/Clifton',34148,24.316299636874781243
+'Staten Island','Heartland Village/Todt Hill',32996,17.558340404897563758
+'Staten Island','Mariners Harbor',45161,15.842806846615442139
+'Staten Island','New Dorp/Midland Beach',18331,17.311166875784191887
+'Staten Island','Oakwood',10949,18.367704813224950299
+'Staten Island','Port Richmond',22583,16.949519550104060527
+'Staten Island','Rossville/Woodrow',7700,17.16675324675324532
+'Staten Island','Saint George/New Brighton',79076,15.68737670089534042
+'Staten Island','South Beach/Dongan Hills',26885,18.175674167751534326
+'Staten Island','Stapleton',62147,23.438556969765233616
+'Staten Island','West Brighton',25899,16.656125719139733831
+'Staten Island','Westerleigh',24261,14.828448950991303334
+'Unknown','NA',29324,35.661471831946528255
+'Unknown','NV',887462,35.743389576117060358

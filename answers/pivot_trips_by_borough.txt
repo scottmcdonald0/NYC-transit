@@ -1,0 +1,111 @@
+nyc_transit/target/compiled/nyc_transit/analyses/pivot_trips_by_borough.sql
+select
+  
+  
+    sum(
+      
+      case
+      when trips = 'EWR'
+        then 1
+      else 0
+      end
+    )
+    
+      
+            as "EWR"
+      
+    
+    ,
+  
+    sum(
+      
+      case
+      when trips = 'Manhattan'
+        then 1
+      else 0
+      end
+    )
+    
+      
+            as "Manhattan"
+      
+    
+    ,
+  
+    sum(
+      
+      case
+      when trips = 'Staten Island'
+        then 1
+      else 0
+      end
+    )
+    
+      
+            as "Staten Island"
+      
+    
+    ,
+  
+    sum(
+      
+      case
+      when trips = 'Bronx'
+        then 1
+      else 0
+      end
+    )
+    
+      
+            as "Bronx"
+      
+    
+    ,
+  
+    sum(
+      
+      case
+      when trips = 'Queens'
+        then 1
+      else 0
+      end
+    )
+    
+      
+            as "Queens"
+      
+    
+    ,
+  
+    sum(
+      
+      case
+      when trips = 'Brooklyn'
+        then 1
+      else 0
+      end
+    )
+    
+      
+            as "Brooklyn"
+      
+    
+    ,
+  
+    sum(
+      
+      case
+      when trips = 'Unknown'
+        then 1
+      else 0
+      end
+    )
+    
+      
+            as "Unknown"
+      
+    
+    
+  
+
+from "main"."mart"."mart__fact_trips_by_borough";

@@ -1,0 +1,133 @@
+nyc_transit/target/compiled/nyc_transit/analyses/zones_with_less_than_100k_trips.sql
+select
+    Zone,
+    count(*) as trips
+from
+    "main"."mart"."mart__dim_locations" dl
+join
+    "main"."mart"."mart__fact_all_taxi_trips" t
+on dl.LocationID = t.pulocationid
+group by all
+having trips < 100000
+order by Zone;
+'Zone','trips'
+'Allerton/Pelham Gardens',79265
+'Arden Heights',8881
+'Arrochar/Fort Wadsworth',18322
+'Astoria Park',1396
+'Auburndale',27380
+'Bath Beach',37672
+'Battery Park',4882
+'Bay Terrace/Fort Totten',22945
+'Bayside',60409
+'Bellerose',24390
+'Bensonhurst East',88734
+'Bloomfield/Emerson Hill',46416
+'Bloomingdale',73275
+'Breezy Point/Fort Tilden/Riis Beach',3282
+'Briarwood/Jamaica Hills',75436
+'Brighton Beach',73674
+'Broad Channel',1592
+'Bronx Park',15648
+'Brooklyn Navy Yard',27056
+'Cambria Heights',37529
+'Carroll Gardens',77416
+'Charleston/Tottenville',13165
+'Chinatown',77615
+'City Island',7759
+'Cobble Hill',47298
+'College Point',45617
+'Columbia Street',17436
+'Coney Island',91813
+'Country Club',10361
+'Crotona Park',5848
+'Crotona Park East',97095
+'Douglaston',17748
+'Dyker Heights',53901
+'East Elmhurst',80637
+'East Flushing',35664
+'Elmhurst/Maspeth',66595
+'Eltingville/Annadale/Prince''s Bay',13082
+'Far Rockaway',67725
+'Financial District South',78600
+'Flushing Meadows-Corona Park',17047
+'Fordham South',88003
+'Forest Park/Highland Park',5044
+'Fresh Meadows',28603
+'Freshkills Park',786
+'Glen Oaks',24764
+'Glendale',82127
+'Governor''s Island/Ellis Island/Liberty Island',15
+'Gowanus',64439
+'Gravesend',50696
+'Great Kills',19833
+'Great Kills Park',63
+'Green-Wood Cemetery',1550
+'Grymes Hill/Clifton',34148
+'Hammels/Arverne',60146
+'Heartland Village/Todt Hill',32996
+'Highbridge Park',3563
+'Hillcrest/Pomonok',73436
+'Hollis',41159
+'Howard Beach',43638
+'Inwood Hill Park',8947
+'Jamaica Bay',78
+'Jamaica Estates',50828
+'Kensington',67987
+'Kew Gardens',69361
+'Kew Gardens Hills',55931
+'Laurelton',61747
+'Long Island City/Queens Plaza',88236
+'Longwood',89396
+'Madison',79677
+'Manhattan Beach',37735
+'Manhattanville',92770
+'Marble Hill',40968
+'Marine Park/Floyd Bennett Field',3598
+'Mariners Harbor',45161
+'Maspeth',86141
+'Middle Village',68618
+'Murray Hill-Queens',63990
+'NA',29324
+'New Dorp/Midland Beach',18331
+'Newark Airport',1972
+'North Corona',85988
+'Oakland Gardens',21147
+'Oakwood',10949
+'Ocean Parkway South',36465
+'Ozone Park',53590
+'Parkchester',95768
+'Pelham Bay',44926
+'Pelham Bay Park',7961
+'Port Richmond',22583
+'Prospect Park',20788
+'Queens Village',90845
+'Queensboro Hill',42418
+'Queensbridge/Ravenswood',54857
+'Randalls Island',4668
+'Red Hook',63855
+'Rego Park',86465
+'Rikers Island',15
+'Riverdale/North Riverdale/Fieldston',54622
+'Rockaway Park',20327
+'Roosevelt Island',19646
+'Rosedale',59334
+'Rossville/Woodrow',7700
+'Saint George/New Brighton',79076
+'Saint Michaels Cemetery/Woodside',11618
+'Seaport',73303
+'South Beach/Dongan Hills',26885
+'South Williamsburg',54588
+'Springfield Gardens North',75061
+'Springfield Gardens South',67034
+'Stapleton',62147
+'Starrett City',48659
+'Stuy Town/Peter Cooper Village',76075
+'Sunset Park East',79236
+'Van Cortlandt Park',21897
+'West Brighton',25899
+'Westchester Village/Unionport',92018
+'Westerleigh',24261
+'Whitestone',43750
+'Willets Point',2213
+'Windsor Terrace',46775
